@@ -89,6 +89,10 @@
       generateForm: function () {
         var placeholder = document.getElementById('b1d-placeholder');
         placeholder.innerHTML = '<form id="b1d" class="h-adr"><span class="p-country-name" style="display:none;">Japan</span>〒<input type="text" class="p-postal-code" size="8" maxlength="8" /><br /><input type="text" class="p-region p-locality p-street-address p-extended-address" /></form>';
+
+        setTimeout(function () {
+          new YubinBango.MicroformatDom();
+        }, 0);
       }
     };
   </script>
