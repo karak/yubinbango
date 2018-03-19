@@ -81,6 +81,18 @@
     <input type="text" class="p-region p-locality p-street-address p-extended-address" /><br>
   </form>
 
+  <h4>動的にフォームが追加される場合</h4>
+  <div id="b1d-placeholder"></div>
+  <button id="b1d-button" onclick="b1d.generateForm()">フォーム生成</button>
+  <script>
+    b1d = {
+      generateForm: function () {
+        var placeholder = document.getElementById('b1d-placeholder');
+        placeholder.innerHTML = '<form id="b1d" class="h-adr"><span class="p-country-name" style="display:none;">Japan</span>〒<input type="text" class="p-postal-code" size="8" maxlength="8" /><br /><input type="text" class="p-region p-locality p-street-address p-extended-address" /></form>';
+      }
+    };
+  </script>
+
   <h3>都道府県 と 以降の住所 に分ける場合</h3>
   <!--href="http://microformats.org/wiki/h-adr"-->
   <form class="h-adr" id="b2">
@@ -135,6 +147,5 @@
 
     <input type="text" class="p-region p-locality p-street-address p-extended-address" /><br>
   </form>
-
   </body>
 </html>

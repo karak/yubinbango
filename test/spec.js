@@ -79,6 +79,20 @@ describe('YubinBango', function() {
       });
     });
 
+    it('住所欄をワンボックスにする場合/動的にフォームが追加される場合', function() {
+      element(by.css('#b1d-button')).click();
+
+      expect( element.all(by.css('#b1d .p-postal-code')).count() ).toEqual( 1 );
+      element.all(by.css('#b1d .p-postal-code')).get(0).sendKeys(1008950)
+      .then(function(){
+        browser.driver.sleep(1000)
+        .then(function(){
+          expect(element(by.css('#b1d .p-region')).getAttribute('value')).toEqual('東京都千代田区霞が関１丁目２－１');
+        });
+      });
+    });
+
+
     it('都道府県 と 以降の住所 に分ける場合', function() {
       expect( element.all(by.css('#b2 .p-postal-code')).count() ).toEqual( 1 );
       element.all(by.css('#b2 .p-postal-code')).get(0).sendKeys(1008950)
